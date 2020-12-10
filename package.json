@@ -19,7 +19,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "pregit": "git add .",
-    "git": "git commit -m 'reworked components'",
+    "git": "git commit -m",
     "postgit": "git push"
   },
   "eslintConfig": {
