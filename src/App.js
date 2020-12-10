@@ -1,9 +1,9 @@
 import React from 'react';
-import Card from './Card'
+import Cardlist from './Cardlist'
 
 const App = () => {
   return (
-    <Card name="Robin" id="1"/>
+    <Cardlist />
   )
 }
 
