@@ -1,12 +1,13 @@
 import React from 'react';
 import Card from './Card';
 import { users } from './users';
+import Toggle from './Toggle'
 
 const Cardlist = () => {
   return (
     <div>
       {
-        [<p>hello</p>]
+        <Toggle />
         // users.map((person, i) => {
         //   return (
         //     <Card 
