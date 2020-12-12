@@ -65,27 +65,19 @@ function MinWindowSubstring(strArr) {
     convertCurrentSubstringToHash()
     if (checkHash() && dontMoveI === false) {
       i++;
-      currentSubstring = slicer(N, i, j);
-      shortestSubstring = currentSubstring.length;
-      convertCurrentSubstringToHash()
+      sliceUpdateAndRehash()
       currentBestSubstring = currentSubstring
       if (!checkHash()) {
         dontMoveI = true;
         i--;
-        currentSubstring = slicer(N, i, j);
-        shortestSubstring = currentSubstring.length;
-        convertCurrentSubstringToHash()
+        sliceUpdateAndRehash()
       }
     } else if (checkHash() && dontMoveI === true) {
       j--;
-      currentSubstring = slicer(N, i, j);
-      shortestSubstring = currentSubstring.length;
-      convertCurrentSubstringToHash()
+      sliceUpdateAndRehash()
       if (!checkHash()) {
         j++;
-        currentSubstring = slicer(N, i, j);
-        shortestSubstring = currentSubstring.length;
-        convertCurrentSubstringToHash()
+        sliceUpdateAndRehash()
         // Complete!
         currentBestSubstring = currentSubstring
         break;
@@ -104,26 +96,18 @@ function MinWindowSubstring(strArr) {
     convertCurrentSubstringToHash()
     if (checkHash() && dontMoveJ === false) {
       j--;
-      currentSubstring = slicer(N, i, j);
-      shortestSubstring = currentSubstring.length;
-      convertCurrentSubstringToHash()
+      sliceUpdateAndRehash()
       if (!checkHash()) {
         dontMoveJ = true;
         j++;
-        currentSubstring = slicer(N, i, j);
-        shortestSubstring = currentSubstring.length;
-        convertCurrentSubstringToHash()
+        sliceUpdateAndRehash()
       }
     } else if (checkHash() && dontMoveJ === true) {
       i++;
-      currentSubstring = slicer(N, i, j);
-      shortestSubstring = currentSubstring.length;
-      convertCurrentSubstringToHash()
+      sliceUpdateAndRehash()
       if (!checkHash()) {
         i--;
-        currentSubstring = slicer(N, i, j);
-        shortestSubstring = currentSubstring.length;
-        convertCurrentSubstringToHash()
+        sliceUpdateAndRehash()
         // Complete!
         break;
       }
@@ -135,8 +119,6 @@ if (currentBestSubstring.length >= currentSubstring.length) {
 } else {
   return currentBestSubstring
 }
-  
-
 }
    
 // keep this function call here 
