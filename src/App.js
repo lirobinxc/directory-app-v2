@@ -1,10 +1,13 @@
 import React from 'react';
 import Cardlist from './Cardlist'
-
+import Searchbox from './Searchbox'
 
 const App = () => {
   return (
-    <Cardlist />
+    <div className="tc">
+      <Searchbox />
+      <Cardlist />
+    </div>
   )
 }
 
