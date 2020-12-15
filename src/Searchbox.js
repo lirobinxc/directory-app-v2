@@ -1,8 +1,15 @@
 import React from 'react';
 
-const Searchbox = () => {
+const Searchbox = ({searchFxn}) => {
   return (
-    <input type="text" className="ma3 w5 h2 ba bw1 b--light-blue"></input>
+    <div className="ma4">
+      <input 
+        type="text" 
+        className="w5 h2 ba bw1 b--light-blue"
+        placeholder="Search robots..."
+        onChange={searchFxn}
+      />
+    </div>
   )
 }
 

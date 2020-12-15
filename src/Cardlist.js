@@ -1,17 +1,16 @@
 import React from 'react';
 import Card from './Card';
-import { users } from './users';
 
-const Cardlist = () => {
+const Cardlist = ({ userDatabase }) => {
   return (
     <div className="flex flex-wrap justify-center">
       {
-        users.map((person, i) => {
+        userDatabase.map((person, i) => {
           return (
             <Card 
+              key={i}
               id={person.id}
               name={person.name}
-              // city={person.address.city}
               email={person.email}
             />
           );
