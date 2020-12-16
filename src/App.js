@@ -1,6 +1,7 @@
 import React from 'react';
 import Cardlist from './Cardlist'
 import Searchbox from './Searchbox'
+import ErrorBoundary from './ErrorBoundary'
 
 class App extends React.Component {
   constructor(props) {
@@ -33,19 +34,28 @@ class App extends React.Component {
     )
 
     // Show loading text if no userDatabase
-    let renderCardlist;
-    if (userDatabase.length === 0) {
-      renderCardlist = <h2 className="white">LOADING</h2>
-    } else {
-      renderCardlist = <Cardlist userDatabase={filteredUsers}/>
+    // let renderCardlist;
+    // if (userDatabase.length === 0) {
+    //   renderCardlist = <h2 className="white">LOADING</h2>
+    // } else {
+    //   renderCardlist = <Cardlist userDatabase={filteredUsers}/>
+    // }
+    function renderCardlist() {
+      if (userDatabase.length === 0) {
+        return <h2 className="white">LOADING</h2>
+      } else {
+        return <Cardlist userDatabase={filteredUsers}/>
+      }
     }
 
     // Output
     return (
       <div className="tc">
-        <h1 className="ttu f1 light-blue mt4 mb2">Robot Search Engine</h1>
-        <Searchbox searchFxn={this.onSearchInput}/>
-        {renderCardlist}
+          <h1 className="ttu f1 light-blue mt4 mb2">Robot Search Engine</h1>
+          <Searchbox searchFxn={this.onSearchInput}/>
+          <ErrorBoundary>
+            {renderCardlist()}
+          </ErrorBoundary>
       </div>
     )
   }
